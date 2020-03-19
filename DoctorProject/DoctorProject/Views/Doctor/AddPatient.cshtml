@@ -1,0 +1,69 @@
+﻿@model DoctorProject.Models.PatientModel
+
+@{
+    ViewBag.Title = "AddPatient";
+}
+<h2>Enter Patient Details</h2><br />
+<form name="myform" action="AddPatient" method="post" onsubmit="return validateform(this.form)">
+
+    <label for="pname">Patient Name</label>
+    <input type="text" id="pname" name="PatientName" />
+    <span id="showerror1" style="color:red;font-weight:bold"></span>
+    <br />
+    <br />
+    <label for="did">Doctor ID</label>
+    <input type="number" id="did" name="DoctorId" />
+    <span id="showerror2" style="color:red;font-weight:bold"></span>
+    <br />
+    <br />
+    <br />
+    <label for="pbill">Patient Bill </label>
+    <input type="number" id="pbill" name="PatientBill" />
+    <span id="showerror3" style="color:red;font-weight:bold"></span>
+    <br />
+    <br />
+    <input type="submit" value="INSERT" class="btn btn-default" />
+
+</form>
+<br />
+
+
+
+<br />
+@Html.ActionLink("Homepage", "Index")
+<body style="background-color:aquamarine; font-family: Verdana, Arial;">
+    <form action="" method="post"></form>
+</body>
+<script>
+    function validateform(form) {
+
+        var patientname = document.getElementById("pname").value;
+        var Doctorid = document.getElementById("did").value;
+        var PatientBill = document.getElementById("pbill").value;
+
+
+        if (patientname == null || patientname == "") {
+            document.getElementById("showerror1").innerHTML = "Please enter patient name";
+            return false;
+        } if (Doctorid == null || Doctorid == "") {
+            document.getElementById("showerror2").innerHTML = "please enter doctor id  ";
+            return false;
+        }
+        if (PatientBill == null || PatientBill == "") {
+            document.getElementById("showerror3").innerHTML = "please enter patient bill  ";
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
+
+@if (TempData["status"] != null)
+{
+    <script type="text/javascript">
+            window.onload = function () {
+                alert("@TempData["status"]");
+            };
+    </script>
+}

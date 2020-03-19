@@ -1,0 +1,48 @@
+﻿@model DoctorProject.Models.DoctorModel
+
+@{
+    ViewBag.Title = "AddDoctor";
+}
+<script>
+    function validateform(form) {
+
+        var name = document.getElementById("dname").value;
+        var Salary = document.getElementById("dsalary").value;
+
+        if (name == null||name =="")
+        {   document.getElementById("showerror").innerHTML = "Please Enter doctor name ";
+            return false;
+        } if (Salary == null || Salary == "") {
+            document.getElementById("showerror").innerHTML = "please enter salary ";
+            return false;
+        }    
+        return true;
+    }
+</script>
+<h2>INSERT DOCTOR DETAILS</h2><br />
+
+<form name = "myform"action="AddDoctor"method="post" onsubmit="return validateform(this.form)">
+
+    <label for="dname">Doctor name</label>
+    <input type="text" id="dname" name="DoctorName" />
+    <br />
+    <span id="showerror" style="color:red;font-weight:bold"></span>
+    <br />
+
+    <label for="dsalary">Salary</label><t /><t />
+    <input type="number" id="dsalary" name="Salary" />
+    <br />
+    <span id="showerror" style="color:red;font-weight:bold"></span>
+    <br />
+    <input type="submit" value="INSERT" class="btn btn-default" />
+    
+</form>
+<br />
+<br />
+
+@Html.ActionLink("Homepage", "Index")
+
+<body style="background-color:aquamarine; font-family: Verdana, Arial;">
+    <form action="" method="post"></form>
+
+</body>

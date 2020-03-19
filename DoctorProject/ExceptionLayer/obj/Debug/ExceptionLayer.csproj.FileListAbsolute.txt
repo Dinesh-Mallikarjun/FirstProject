@@ -1,0 +1,6 @@
+C:\Users\M1057962\source\repos\DoctorProject\ExceptionLayer\bin\Debug\ExceptionLayer.dll
+C:\Users\M1057962\source\repos\DoctorProject\ExceptionLayer\bin\Debug\ExceptionLayer.pdb
+C:\Users\M1057962\source\repos\DoctorProject\ExceptionLayer\obj\Debug\ExceptionLayer.csproj.CoreCompileInputs.cache
+C:\Users\M1057962\source\repos\DoctorProject\ExceptionLayer\obj\Debug\ExceptionLayer.dll
+C:\Users\M1057962\source\repos\DoctorProject\ExceptionLayer\obj\Debug\ExceptionLayer.pdb
+C:\Users\M1057962\source\repos\DoctorProject\ExceptionLayer\obj\Debug\ExceptionLayer.csprojAssemblyReference.cache

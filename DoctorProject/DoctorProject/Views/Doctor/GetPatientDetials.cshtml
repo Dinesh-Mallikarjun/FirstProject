@@ -1,0 +1,22 @@
+﻿@model IEnumerable<DoctorProject.Models.PatientModel>
+
+@{
+    ViewBag.Title = "GetPatientDetials";
+}
+
+
+<table class="table table-boadered table-striped">
+    <tr>
+        <th> Patients Name</th>
+    </tr>
+
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>@i.PatientName</td>
+        </tr>
+    }
+</table>
+<body style="background-color:aquamarine; font-family: Verdana, Arial;">
+    <form action="" method="post"></form>
+</body>
