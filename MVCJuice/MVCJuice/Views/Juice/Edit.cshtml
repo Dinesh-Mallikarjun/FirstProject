@@ -1,0 +1,13 @@
+﻿@model MVCJuice.Models.JuiceOrder
+
+@{ 
+    ViewBag.Titlw = "Edit";
+}
+<h2>Edit</h2>
+<form action="EditDetails" method="post">
+    <label for="orderId">Order Id</label>
+    <input type="text" name="orderId" value="" />
+    <label for="Quantity">Updated Quantity</label>
+    <input type="text" name="quantity" value="" />
+    <input type="submit" name="Edit" value="" />
+</form>

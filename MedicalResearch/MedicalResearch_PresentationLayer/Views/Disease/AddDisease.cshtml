@@ -1,0 +1,71 @@
+﻿@using MedicalResearch_PresentationLayer.Models
+
+@model ViewModel
+@{
+    ViewBag.Title = "AddDisease";
+}
+
+<script>
+    function validateform(form) {
+        var name = document.getElementById("dname").value;
+        var description = document.getElementById("desc").value;
+
+        if (name == null || name == "") {
+            document.getElementById("showerror1").innerHTML = "Please Enter Disease name ";
+            return false;
+        } if (description == null || description == "") {
+            document.getElementById("showerror2").innerHTML = "Please Enter Discription";
+            return false;
+        }
+            return true;
+    }
+</script>
+<html>
+<head>
+</head>
+<body>
+    <h2>AddDisease</h2>
+    <form action="AddDisease" method="post" onsubmit="return validateform(this.form)">
+        <label for="dname">Disease name:</label>
+        <input type="text" id="dname" name="Disease_Name" /><br />       
+        <span id="showerror1" style="color:red;font-weight:bold"></span>
+        <br />
+        <br />
+        <label>Severity:</label>
+        <select name="Disease_Severity_Id.Severity_Id">
+            @foreach (var severity in Model.severityModels)
+            {
+                <option value="@severity.Severity_Id">@severity.Severity_Name</option>
+            }
+        </select>
+        <br /><br />
+        <label>Cuase:</label>
+        @foreach (var cause in Model.causeModels)
+        {
+            <input type="radio" name="Disease_Cause_Id.Cause_ID" value="@cause.Cause_ID">@cause.Cause_Name
+        }
+        <input type="reset" value="Reset">
+        <br /><br />
+
+        <label for="desc">Disease Description</label>
+        <input type="text" id="desc" name="Disease_description" required><br><br>
+        <span id="showerror2" style="color:red;font-weight:bold"></span>
+        <br />
+        <br />
+        <input type="submit" value="Add Disease" submit="location.href='@Url.Action("Success","Disease")'">
+        <input type="button" value="Cancel" onclick="location.href='@Url.Action("Index","Home")'" />
+    </form>
+</body>
+</html>
+@if (TempData["status"] != null)
+{
+    <script type="text/javascript">
+            window.onload = function () {
+                alert("@TempData["status"]");
+            };
+    </script>
+}
+<body style="background-color:lightcyan; font-family: Verdana, Arial;">
+    <form action="" method="post"></form>
+
+</body>

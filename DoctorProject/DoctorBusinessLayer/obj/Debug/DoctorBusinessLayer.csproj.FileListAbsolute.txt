@@ -2,12 +2,12 @@ C:\Users\M1057962\source\repos\DoctorProject\DoctorBusinessLayer\bin\Debug\Docto
 C:\Users\M1057962\source\repos\DoctorProject\DoctorBusinessLayer\bin\Debug\DoctorBusinessLayer.pdb
 C:\Users\M1057962\source\repos\DoctorProject\DoctorBusinessLayer\bin\Debug\DataAcessLayer.dll
 C:\Users\M1057962\source\repos\DoctorProject\DoctorBusinessLayer\bin\Debug\EntityLayer.dll
+C:\Users\M1057962\source\repos\DoctorProject\DoctorBusinessLayer\bin\Debug\ExceptionLayer.dll
 C:\Users\M1057962\source\repos\DoctorProject\DoctorBusinessLayer\bin\Debug\DataAcessLayer.pdb
 C:\Users\M1057962\source\repos\DoctorProject\DoctorBusinessLayer\bin\Debug\EntityLayer.pdb
+C:\Users\M1057962\source\repos\DoctorProject\DoctorBusinessLayer\bin\Debug\ExceptionLayer.pdb
 C:\Users\M1057962\source\repos\DoctorProject\DoctorBusinessLayer\obj\Debug\DoctorBusinessLayer.csprojAssemblyReference.cache
 C:\Users\M1057962\source\repos\DoctorProject\DoctorBusinessLayer\obj\Debug\DoctorBusinessLayer.csproj.CoreCompileInputs.cache
 C:\Users\M1057962\source\repos\DoctorProject\DoctorBusinessLayer\obj\Debug\DoctorBusinessLayer.csproj.CopyComplete
 C:\Users\M1057962\source\repos\DoctorProject\DoctorBusinessLayer\obj\Debug\DoctorBusinessLayer.dll
 C:\Users\M1057962\source\repos\DoctorProject\DoctorBusinessLayer\obj\Debug\DoctorBusinessLayer.pdb
-C:\Users\M1057962\source\repos\DoctorProject\DoctorBusinessLayer\bin\Debug\ExceptionLayer.dll
-C:\Users\M1057962\source\repos\DoctorProject\DoctorBusinessLayer\bin\Debug\ExceptionLayer.pdb

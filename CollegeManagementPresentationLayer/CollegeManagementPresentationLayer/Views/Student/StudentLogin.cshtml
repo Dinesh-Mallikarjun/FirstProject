@@ -1,0 +1,44 @@
+﻿
+
+@model  CollegeManagementPresentationLayer.Models.LoginModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "StudentLogin";
+
+}
+<html>
+<body>
+    <form name="myform" method="post" onsubmit="return validateform(this.form)" action="StudentLogin">
+        <br />
+        <br />
+        Name: <input type="text" name="name" id="name"><br /><br />
+        Password: <input type="password" name="password" id="password"><br /><br />
+        <input type="submit" value="login">
+    </form>
+</body>
+</html>
+<body style="background-color:beige; font-family: Verdana, Arial;">
+</body>
+<span id="showerror" class="text-danger"></span>
+<script>
+    function validateform(form)
+    {
+
+        var name = document.getElementById("name").value;
+        var password = document.getElementById("password").value;
+
+        if (name == null || name == "") {
+            document.getElementById("showerror").innerHTML = "Name field is incorrect";
+            return false;
+        } else if (password.length < 7) {
+            document.getElementById("showerror").innerHTML = "password is incorrect";
+            return false;
+        } if (form.name.value == "Student" && form.password.value == "Student") {
+            return true;
+        }
+        else
+            return false;
+    }
+</script>

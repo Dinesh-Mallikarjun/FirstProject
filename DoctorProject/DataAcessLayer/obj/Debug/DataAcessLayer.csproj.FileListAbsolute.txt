@@ -1,11 +1,11 @@
 C:\Users\M1057962\source\repos\DoctorProject\DataAcessLayer\bin\Debug\DataAcessLayer.dll
 C:\Users\M1057962\source\repos\DoctorProject\DataAcessLayer\bin\Debug\DataAcessLayer.pdb
 C:\Users\M1057962\source\repos\DoctorProject\DataAcessLayer\bin\Debug\EntityLayer.dll
+C:\Users\M1057962\source\repos\DoctorProject\DataAcessLayer\bin\Debug\ExceptionLayer.dll
 C:\Users\M1057962\source\repos\DoctorProject\DataAcessLayer\bin\Debug\EntityLayer.pdb
+C:\Users\M1057962\source\repos\DoctorProject\DataAcessLayer\bin\Debug\ExceptionLayer.pdb
 C:\Users\M1057962\source\repos\DoctorProject\DataAcessLayer\obj\Debug\DataAcessLayer.csprojAssemblyReference.cache
 C:\Users\M1057962\source\repos\DoctorProject\DataAcessLayer\obj\Debug\DataAcessLayer.csproj.CoreCompileInputs.cache
 C:\Users\M1057962\source\repos\DoctorProject\DataAcessLayer\obj\Debug\DataAcessLayer.csproj.CopyComplete
 C:\Users\M1057962\source\repos\DoctorProject\DataAcessLayer\obj\Debug\DataAcessLayer.dll
 C:\Users\M1057962\source\repos\DoctorProject\DataAcessLayer\obj\Debug\DataAcessLayer.pdb
-C:\Users\M1057962\source\repos\DoctorProject\DataAcessLayer\bin\Debug\ExceptionLayer.dll
-C:\Users\M1057962\source\repos\DoctorProject\DataAcessLayer\bin\Debug\ExceptionLayer.pdb

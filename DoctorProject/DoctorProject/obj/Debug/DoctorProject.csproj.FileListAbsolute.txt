@@ -50,6 +50,7 @@ C:\Users\M1057962\source\repos\DoctorProject\DoctorProject\bin\roslyn\VBCSCompil
 C:\Users\M1057962\source\repos\DoctorProject\DoctorProject\bin\Antlr3.Runtime.dll
 C:\Users\M1057962\source\repos\DoctorProject\DoctorProject\bin\DoctorBusinessLayer.dll
 C:\Users\M1057962\source\repos\DoctorProject\DoctorProject\bin\EntityLayer.dll
+C:\Users\M1057962\source\repos\DoctorProject\DoctorProject\bin\ExceptionLayer.dll
 C:\Users\M1057962\source\repos\DoctorProject\DoctorProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\M1057962\source\repos\DoctorProject\DoctorProject\bin\Microsoft.Web.Infrastructure.dll
 C:\Users\M1057962\source\repos\DoctorProject\DoctorProject\bin\Newtonsoft.Json.dll
@@ -64,6 +65,7 @@ C:\Users\M1057962\source\repos\DoctorProject\DoctorProject\bin\WebGrease.dll
 C:\Users\M1057962\source\repos\DoctorProject\DoctorProject\bin\DataAcessLayer.dll
 C:\Users\M1057962\source\repos\DoctorProject\DoctorProject\bin\DoctorBusinessLayer.pdb
 C:\Users\M1057962\source\repos\DoctorProject\DoctorProject\bin\EntityLayer.pdb
+C:\Users\M1057962\source\repos\DoctorProject\DoctorProject\bin\ExceptionLayer.pdb
 C:\Users\M1057962\source\repos\DoctorProject\DoctorProject\bin\System.Web.Helpers.xml
 C:\Users\M1057962\source\repos\DoctorProject\DoctorProject\bin\System.Web.Mvc.xml
 C:\Users\M1057962\source\repos\DoctorProject\DoctorProject\bin\System.Web.Optimization.xml
@@ -80,5 +82,3 @@ C:\Users\M1057962\source\repos\DoctorProject\DoctorProject\obj\Debug\DoctorProje
 C:\Users\M1057962\source\repos\DoctorProject\DoctorProject\obj\Debug\DoctorProject.csproj.CopyComplete
 C:\Users\M1057962\source\repos\DoctorProject\DoctorProject\obj\Debug\DoctorProject.dll
 C:\Users\M1057962\source\repos\DoctorProject\DoctorProject\obj\Debug\DoctorProject.pdb
-C:\Users\M1057962\source\repos\DoctorProject\DoctorProject\bin\ExceptionLayer.dll
-C:\Users\M1057962\source\repos\DoctorProject\DoctorProject\bin\ExceptionLayer.pdb

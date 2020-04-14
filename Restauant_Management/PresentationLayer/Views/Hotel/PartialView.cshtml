@@ -1,0 +1,14 @@
+﻿@model System.Collections.ArrayList
+@{
+    ViewBag.Title = "PartialView";
+}
+@Html.Partial("DisplayGuests", Model[0])<br />
+
+
+@Html.Partial("DisplayPresentGuests", Model[1])<br />
+
+
+@Html.Partial("DisplayTop5BillGuests", Model[2])<br />
+
+
+@Html.Partial("Displayleast5BillGuests", Model[3])<br />

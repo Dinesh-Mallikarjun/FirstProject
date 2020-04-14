@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@* "Link","actionname","controller" *@
+@Html.ActionLink("Add College", "AddCollege", "College")<br /><br />
+
+@Html.ActionLink("Display colleges which has atleast one seat", "Display", "College")<br /><br />
+
+@Html.ActionLink("Display Students of particular College id ", "getstudents", "Student")<br /><br />
+
+@Html.ActionLink("Add Student", "AddStudent", "Student")<br /><br />
+
+@Html.ActionLink("Delete Student", "delete", "Student")<br /><br />
+
+@Html.ActionLink("Display students who has more that 50 percentage","studentbelow50","Student")
+
+
+
+@*@Html.ActionLink("get students ", "getstudents","Student")<br /><br/>*@
+
+@*@Html.ActionLink(" Display colleges ", "DisplayColleges", "College")<br /><br />*@
+

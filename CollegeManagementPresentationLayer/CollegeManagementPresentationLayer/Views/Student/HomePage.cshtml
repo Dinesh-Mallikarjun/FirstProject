@@ -1,0 +1,71 @@
+﻿@model IEnumerable<CollegeManagementEntities.College>
+@{ 
+    ViewBag.Title = "Homepage";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CollegeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CollegeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CutOffPercentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfSeatsAvailable)
+        </th>
+       
+    </tr>
+
+@foreach (var item in Models) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CollegeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CollegeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CutOffPercentage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfSeatsAvailable)
+        </td>
+
+    </tr>
+}
+
+</table>
+<form action="InsertStudent">
+    <label for="Id">StudentId</label><br />
+    <input type="number" name="Id" />
+    <br />
+    <label for="name">Name</label><br />
+    <input type="text" name="name" />
+    <br />
+    <label for="CollegeId">Enter the collegee Id Where you want to take admission :</label><br />
+    <input type="number" name="Cid" />
+    <br />
+    <label for="percentage">Percentage</label><br />
+    <input type="number" name="percentage" />
+    <br /><br />
+    <input type="submit" />
+</form>
+
+
+<html>
+
+<body style="background-color:beige; font-family: Verdana, Arial;">
+    <form action="" method="post"></form>
+
+</body>
+</html>

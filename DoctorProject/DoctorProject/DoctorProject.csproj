@@ -173,6 +173,7 @@
     <Content Include="Views\Doctor\index.cshtml" />
     <Content Include="Views\Doctor\ShowDoctor.cshtml" />
     <Content Include="Views\Doctor\GetDoctorName.cshtml" />
+    <Content Include="Views\Doctor\DisplayDoctors.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

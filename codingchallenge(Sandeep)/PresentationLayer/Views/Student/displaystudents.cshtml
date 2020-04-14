@@ -1,0 +1,31 @@
+﻿@model IEnumerable<PresentationLayer.Models.StudentModel>
+
+@{
+    ViewBag.Title = "displaystudents";
+}
+
+<h2> student details</h2>
+<table class="table table-boadered table-striped">
+    <tr> 
+        <th>Student Id</th>
+        <th>Student name</th>
+        <th>College id</th>
+        <th>Percentage</th>
+    </tr>
+
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>@i.Studentid</td>
+            <td>@i.StudentName</td>
+            <td>@i.CollegeId</td>
+            <td>@i.ObtainedPercentage</td>
+            
+        </tr>
+    }
+</table>
+<body style="background-color:aquamarine; font-family: Verdana, Arial;">
+    <form action="" method="post"></form>
+</body>
+
+@Html.ActionLink("Delete","delete","Student")

@@ -24,7 +24,6 @@ namespace DoctorProject.Controllers
         {
             ModelManager modelManager = new ModelManager();
             modelManager.AddDoctor(doctorModel);
-
             return View();
         }
 
@@ -42,7 +41,6 @@ namespace DoctorProject.Controllers
 
                 ModelManager modelManager = new ModelManager();
                 modelManager.AddPatient(patientModel);
-
                 return View();
             }
             catch(InvalidData e)
@@ -71,14 +69,12 @@ namespace DoctorProject.Controllers
             ModelManager modelManager = new ModelManager();
             List<DoctorModel> doctorModels = new List<DoctorModel>();
             doctorModels = modelManager.GetDoctorName(name);
-
             return View(doctorModels);
         }
 
         [HttpGet]
         public ActionResult GetDoctorName()
         {
-
             return View();
         }
         [HttpGet]
@@ -92,6 +88,15 @@ namespace DoctorProject.Controllers
         {
             return View();
         }
+        
+        [HttpGet]
+        public ActionResult DisplayDoctors()
+        {
+            ModelManager modelManager = new ModelManager();
+            List<DoctorModel> doctorModels = new List<DoctorModel>();
+            doctorModels = modelManager.DisplayDoctors();            
+            return View(doctorModels);
+        }  
         
     }
 }

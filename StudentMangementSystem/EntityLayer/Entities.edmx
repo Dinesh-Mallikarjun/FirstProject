@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="collegeManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="college">
+          <Key>
+            <PropertyRef Name="Collegeid" />
+          </Key>
+          <Property Name="Collegeid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="colegeName" Type="varchar" MaxLength="50" />
+          <Property Name="location" Type="varchar" MaxLength="50" />
+          <Property Name="cutOffPercentage" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="NumberofseatsAvailable" Type="int" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="PercentageObtained" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Collegeid" Type="int" />
+        </EntityType>
+        <Association Name="FK__student__College__1273C1CD">
+          <End Role="college" Type="Self.college" Multiplicity="0..1" />
+          <End Role="student" Type="Self.student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="college">
+              <PropertyRef Name="Collegeid" />
+            </Principal>
+            <Dependent Role="student">
+              <PropertyRef Name="Collegeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="collegeManagementModelStoreContainer">
+          <EntitySet Name="college" EntityType="Self.college" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="student" EntityType="Self.student" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__student__College__1273C1CD" Association="Self.FK__student__College__1273C1CD">
+            <End Role="college" EntitySet="college" />
+            <End Role="student" EntitySet="student" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="collegeManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="college">
+          <Key>
+            <PropertyRef Name="Collegeid" />
+          </Key>
+          <Property Name="Collegeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="colegeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cutOffPercentage" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="NumberofseatsAvailable" Type="Int32" />
+          <NavigationProperty Name="students" Relationship="Self.FK__student__College__1273C1CD" FromRole="college" ToRole="student" />
+        </EntityType>
+        <EntityType Name="student">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PercentageObtained" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="Collegeid" Type="Int32" />
+          <NavigationProperty Name="college" Relationship="Self.FK__student__College__1273C1CD" FromRole="student" ToRole="college" />
+        </EntityType>
+        <Association Name="FK__student__College__1273C1CD">
+          <End Role="college" Type="Self.college" Multiplicity="0..1" />
+          <End Role="student" Type="Self.student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="college">
+              <PropertyRef Name="Collegeid" />
+            </Principal>
+            <Dependent Role="student">
+              <PropertyRef Name="Collegeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="collegeManagementEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="colleges" EntityType="Self.college" />
+          <EntitySet Name="students" EntityType="Self.student" />
+          <AssociationSet Name="FK__student__College__1273C1CD" Association="Self.FK__student__College__1273C1CD">
+            <End Role="college" EntitySet="colleges" />
+            <End Role="student" EntitySet="students" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="collegeManagementModelStoreContainer" CdmEntityContainer="collegeManagementEntities">
+          <EntitySetMapping Name="colleges">
+            <EntityTypeMapping TypeName="collegeManagementModel.college">
+              <MappingFragment StoreEntitySet="college">
+                <ScalarProperty Name="Collegeid" ColumnName="Collegeid" />
+                <ScalarProperty Name="colegeName" ColumnName="colegeName" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="cutOffPercentage" ColumnName="cutOffPercentage" />
+                <ScalarProperty Name="NumberofseatsAvailable" ColumnName="NumberofseatsAvailable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="students">
+            <EntityTypeMapping TypeName="collegeManagementModel.student">
+              <MappingFragment StoreEntitySet="student">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PercentageObtained" ColumnName="PercentageObtained" />
+                <ScalarProperty Name="Collegeid" ColumnName="Collegeid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

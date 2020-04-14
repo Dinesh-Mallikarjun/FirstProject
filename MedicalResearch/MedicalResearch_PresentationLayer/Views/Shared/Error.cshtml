@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Error</title>
+</head>
+<body>
+    <hgroup>
+        <h1>Error.</h1>
+        <h2>An error occurred while processing your request.</h2>
+    </hgroup>
+</body>
+</html>
+
+
+
+
+
+
+
+@{
+    ViewBag.Title = "AddDisease";
+}
+
+<h2>AddDisease</h2>
+<form action="AddDisease" method="post">
+
+    <label for="dname">Disease name:</label>
+    <input type="text" id="dname" name="Disease_Name" />
+    <br />
+    <br />
+
+    <label>Severity</label>
+    <select name="Severity_Id">
+        @foreach (var Severity in Model)
+        {
+            <option value="@Severity.Severity_Id">@Severity.Severity_Name</option>
+        }
+    </select>
+    <br /><br />
+
+    <label>Cause</label>
+    <input type="radio" id="ef" name="ExternalFactors" value="ExternalFactors">
+    <label for="ef">ExternalFactors</label>
+    <input type="radio" id="id" name="InternalDisorders" value="InternalDisorders">
+    <label for="id">InternalDisorders</label><br><br />
+
+    <label for="description">Disease Description</label>
+    <input type="text" id="description" name="Disease_description"><br><br>
+    <br />
+    <br />
+
+    <input type="button" value="Add Disease" @*onclick="location.href='@Url.Action("AddDisease","Disease")'"*@ />
+    <input type="button" value="Cancel" onclick="location.href='@Url.Action("Index","Home")'" />
+
+</form>
+<br />
+<br />
+
+

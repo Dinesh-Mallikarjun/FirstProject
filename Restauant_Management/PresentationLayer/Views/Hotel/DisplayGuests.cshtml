@@ -1,0 +1,31 @@
+﻿@model IEnumerable<PresentationLayer.Models.GuestModel>
+@{
+    ViewBag.Title = "DisplayGuests";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Total Guests</h2>
+<table class="table">
+    <tr>
+        <th>GuestId</th>
+        <th>GuestName</th>
+        <th>Number of person</th>
+        <th>Reserved Table</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.GuestId</td>
+            <td>@item.GuestName</td>
+            <td>@item.NumberOfPeople</td>
+            <td>@item.Reservation_Id</td>
+        </tr>
+    }
+</table>
+<html>
+<body style="background-color:lightgray; font-family: Verdana, Arial;">
+    <form action="" method="post"></form>
+</body>
+</html>
+

@@ -1,0 +1,51 @@
+﻿@model presentationLayer.Models.College
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>College</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CollegeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CollegeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CutOff)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CutOff)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoOfAvailableSeats)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoOfAvailableSeats)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CollegeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

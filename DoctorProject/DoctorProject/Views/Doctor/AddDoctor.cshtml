@@ -10,10 +10,10 @@
         var Salary = document.getElementById("dsalary").value;
 
         if (name == null||name =="")
-        {   document.getElementById("showerror").innerHTML = "Please Enter doctor name ";
+        {   document.getElementById("1").innerHTML = "Please Enter doctor name ";
             return false;
         } if (Salary == null || Salary == "") {
-            document.getElementById("showerror").innerHTML = "please enter salary ";
+            document.getElementById("1").innerHTML = "please enter salary ";
             return false;
         }    
         return true;
@@ -26,13 +26,13 @@
     <label for="dname">Doctor name</label>
     <input type="text" id="dname" name="DoctorName" />
     <br />
-    <span id="showerror" style="color:red;font-weight:bold"></span>
+    <span id="1" style="color:red;font-weight:bold"></span>
     <br />
 
     <label for="dsalary">Salary</label><t /><t />
     <input type="number" id="dsalary" name="Salary" />
     <br />
-    <span id="showerror" style="color:red;font-weight:bold"></span>
+    <span id="1" style="color:red;font-weight:bold"></span>
     <br />
     <input type="submit" value="INSERT" class="btn btn-default" />
     

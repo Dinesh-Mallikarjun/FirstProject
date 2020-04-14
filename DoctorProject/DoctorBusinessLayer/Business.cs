@@ -10,34 +10,30 @@ namespace DoctorBusinessLayer
 {
     public class Business
     {
+        static DataAcess DataAcess = new DataAcess();
         public void AddDoctor(Doctor doctor)
         {
-            DataAcess data = new DataAcess();
-            data.AddDoctor(doctor);
-
+            DataAcess.AddDoctor(doctor);
         }
 
         public void AddPatient(Patient patient)
         {
-            DataAcess data = new DataAcess();
-            data.AddPatient(patient);
-
+            DataAcess.AddPatient(patient);
         }
         public List<Patient> GetPatientDetials(int id)
         {
-            DataAcess dataaccesslayer = new DataAcess();
-            return dataaccesslayer.GetPatientDetials(id);
-
+            return DataAcess.GetPatientDetials(id);
         }
-
-
         public List<Doctor> GetDoctorName(string name)
         {
-            DataAcess dataAcess = new DataAcess();
             List<Doctor> doctors = new List<Doctor>();
-
-            doctors = dataAcess.GetDoctorName(name);
+            doctors = DataAcess.GetDoctorName(name);
             return doctors;
+        }
+
+        public List<Doctor> DisplayDoctors()
+        {
+           return DataAcess.DisplayDoctors();
         }
     }
 }

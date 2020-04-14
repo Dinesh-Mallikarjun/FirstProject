@@ -1,0 +1,46 @@
+﻿@model MVCJuice.Models.JuiceOrder
+
+<h2>EditDetails</h2>
+
+<div>
+    <h4>JuiceOrder</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.OrderId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrderId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JuiceId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JuiceId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalPrice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "showFlavour")
+</p>

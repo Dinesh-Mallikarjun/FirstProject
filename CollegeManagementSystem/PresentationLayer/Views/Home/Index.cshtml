@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<form action="/Home/Login" name="myform">
+    <label for="FirstName">UserName</label>
+    <input type="text" id="name" name="name" />
+    <br />
+    <label for="Password">Password</label>
+    <input type="text" id="password" name="password" />
+    <span id="showmessage" class="text-danger"></span>
+    <input type="submit" value="Login" onclick="return validateForm()" />
+</form>
+<script>
+    function validateForm() {
+        //var x = document.forms["myForm"]["name"].value;
+        var x = document.getElementById("name").value;
+        var y = document.forms["password"].value;
+        if (x == "" || y == "") {
+            document.getElementById("showmessage").innerHTML = "Credential Must be filled";
+            return false;
+        }
+        return true;
+    }
+</script>
+
+
+@*
+
+<head>
+
+    <style>
+        div {
+            background-image: url('college.jpg');
+        }
+    </style>
+</head>
+<body>
+    <h1>WelCome TO</h1>
+    <br />
+    <h2>CollegeManagementSytem</h2>
+    @Html.ActionLink("AdminLogin", "LoginAdmin", "Admin")
+    <br />
+    <br />
+    @Html.ActionLink("studentLogin", "StudentLogin", "Student")
+
+</body>
+<body style="background-color:beige; font-family: Verdana, Arial;">
+    <form action="" method="post"></form>
+
+</body>
+</html>*@

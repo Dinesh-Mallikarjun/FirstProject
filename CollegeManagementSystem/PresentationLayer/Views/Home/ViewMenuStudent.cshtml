@@ -1,0 +1,53 @@
+﻿@model IEnumerable<PresentationLayer.Models.CollegeModel>
+
+@{
+    ViewBag.Title = "ViewMenuStudent";
+}
+
+<h2>ViewMenuStudent</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.collegeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.collegeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CutOffPercentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AvailableSeat)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.collegeId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.collegeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CutOffPercentage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AvailableSeat)
+        </td>
+       
+    </tr>
+}
+
+</table>

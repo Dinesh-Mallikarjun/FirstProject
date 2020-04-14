@@ -1,0 +1,28 @@
+﻿@model IEnumerable<PresentationLayer.Models.CollegeModel>
+
+@{
+    ViewBag.Title = "Display";
+}
+
+<h2>Display colleges</h2>
+<table class="table table-boadered table-striped">
+    <tr>
+        <th>College Id</th>
+        <th>College Name</th>
+        <th>Location</th>
+        <th>Cut Off percentage</th>
+        <th>No Of available seats </th>
+    </tr>
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>@i.CollegeId</td>
+            <td>@i.CollegeName</td>
+            <td>@i.Location</td>
+            <td>@i.CutOff</td>
+            <td>@i.NoOfAvailableSeats</td>
+        </tr>
+    }
+</table>
+
+@Html.ActionLink("add student", "AddStudent", "Student")

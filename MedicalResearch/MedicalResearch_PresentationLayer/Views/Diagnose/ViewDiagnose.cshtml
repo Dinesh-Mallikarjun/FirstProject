@@ -1,0 +1,35 @@
+﻿
+@model IEnumerable<MedicalResearch_PresentationLayer.Models.DiseasesWithSymptomModel>
+
+@*@model ViewModel*@
+
+@{
+    ViewBag.Title = "ViewDiagnose";
+}
+<h3>Diagnoses for the patient</h3>
+  
+<html>
+<body style="background-color:InfoBackground; font-family: Verdana, Arial;">
+    <form action="" method="post"></form>
+</body>
+</html>
+<form action="ViewDiagnose" method="post"></form>
+
+<form>
+    <table class="table table-boadered table-striped">
+        <tr>
+        <th>@Html.DisplayNameFor(model => model.DsDisease_Id.Disease_Name)</th>
+        <th>@Html.DisplayNameFor(model => model.DsSymptom_Id.Symptom_Name)</th>
+        <th>@Html.DisplayNameFor(model => model.DsDisease_Id.Disease_Severity_Id.Severity_Name)</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.DsDisease_Id.Disease_Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.DsSymptom_Id.Symptom_Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.DsDisease_Id.Disease_Severity_Id.Severity_Name)
+                    </td>
+            </tr>
+        }
+        </table>
+</form>

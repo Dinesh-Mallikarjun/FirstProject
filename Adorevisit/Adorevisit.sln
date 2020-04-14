@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1022
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adorevisit", "Adorevisit\Adorevisit.csproj", "{02F1C9A1-A574-4B8C-8ED6-A5772722F6AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Codechallenge3", "..\Codechallenge3\Codechallenge3\Codechallenge3.csproj", "{F79971B7-8245-415A-B7D5-988314999836}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{02F1C9A1-A574-4B8C-8ED6-A5772722F6AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02F1C9A1-A574-4B8C-8ED6-A5772722F6AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02F1C9A1-A574-4B8C-8ED6-A5772722F6AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02F1C9A1-A574-4B8C-8ED6-A5772722F6AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F79971B7-8245-415A-B7D5-988314999836}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F79971B7-8245-415A-B7D5-988314999836}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F79971B7-8245-415A-B7D5-988314999836}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F79971B7-8245-415A-B7D5-988314999836}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8336819B-E417-41E3-B63B-DA894EF77CFC}
+	EndGlobalSection
+EndGlobal

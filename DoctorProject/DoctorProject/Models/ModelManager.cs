@@ -12,7 +12,6 @@ namespace DoctorProject.Models
         public void AddDoctor(DoctorModel doctorModel)
         {
             Doctor doctor = new Doctor();
-
             doctor.DoctorName = doctorModel.DoctorName;
             doctor.Salary = doctorModel.Salary;
 
@@ -23,6 +22,7 @@ namespace DoctorProject.Models
         public void AddPatient(PatientModel patientModel)
         {
             Patient patient = new Patient();
+
             patient.DoctorId = patientModel.DoctorId;
 
             patient.PatientName = patientModel.PatientName;
@@ -63,10 +63,26 @@ namespace DoctorProject.Models
             {
                 DoctorModel doctorModel = new DoctorModel();
                 doctorModel.DoctorName = i.DoctorName;
+                doctorModels.Add(doctorModel);
+            }
+            return doctorModels;
+        }
+
+        public List<DoctorModel> DisplayDoctors()
+        {
+            Business business = new Business();
+            List<Doctor> doctors = business.DisplayDoctors();
+            List<DoctorModel> doctorModels = new List<DoctorModel>();
+            foreach(var doctor in doctors)
+            {
+                DoctorModel doctorModel = new DoctorModel();
+                doctorModel.DoctoreId = doctor.DoctoreId;
+                doctorModel.DoctorName = doctor.DoctorName;
+                doctorModel.Salary = doctor.Salary;
 
                 doctorModels.Add(doctorModel);
             }
             return doctorModels;
-          }
+        }
     }
 }

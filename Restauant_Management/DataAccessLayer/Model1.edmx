@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Hotel_ManagementModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Guest">
+          <Key>
+            <PropertyRef Name="GuestId" />
+          </Key>
+          <Property Name="GuestId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GuestName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="NumberOfPeople" Type="int" Nullable="false" />
+          <Property Name="BillAmount" Type="int" />
+          <Property Name="Reservation_Id" Type="int" />
+        </EntityType>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="ReservationId" />
+          </Key>
+          <Property Name="ReservationId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TableStatus" Type="int" />
+        </EntityType>
+        <Association Name="FK__Guest__Reservati__15502E78">
+          <End Role="Reservation" Type="Self.Reservation" Multiplicity="0..1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reservation">
+              <PropertyRef Name="ReservationId" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="Reservation_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Hotel_ManagementModelStoreContainer">
+          <EntitySet Name="Guest" EntityType="Self.Guest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reservation" EntityType="Self.Reservation" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Guest__Reservati__15502E78" Association="Self.FK__Guest__Reservati__15502E78">
+            <End Role="Reservation" EntitySet="Reservation" />
+            <End Role="Guest" EntitySet="Guest" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Hotel_ManagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Guest">
+          <Key>
+            <PropertyRef Name="GuestId" />
+          </Key>
+          <Property Name="GuestId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GuestName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NumberOfPeople" Type="Int32" Nullable="false" />
+          <Property Name="BillAmount" Type="Int32" />
+          <Property Name="Reservation_Id" Type="Int32" />
+          <NavigationProperty Name="Reservation" Relationship="Self.FK__Guest__Reservati__15502E78" FromRole="Guest" ToRole="Reservation" />
+        </EntityType>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="ReservationId" />
+          </Key>
+          <Property Name="ReservationId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TableStatus" Type="Int32" />
+          <NavigationProperty Name="Guests" Relationship="Self.FK__Guest__Reservati__15502E78" FromRole="Reservation" ToRole="Guest" />
+        </EntityType>
+        <Association Name="FK__Guest__Reservati__15502E78">
+          <End Role="Reservation" Type="Self.Reservation" Multiplicity="0..1" />
+          <End Role="Guest" Type="Self.Guest" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reservation">
+              <PropertyRef Name="ReservationId" />
+            </Principal>
+            <Dependent Role="Guest">
+              <PropertyRef Name="Reservation_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Hotel_ManagementEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Guests" EntityType="Self.Guest" />
+          <EntitySet Name="Reservations" EntityType="Self.Reservation" />
+          <AssociationSet Name="FK__Guest__Reservati__15502E78" Association="Self.FK__Guest__Reservati__15502E78">
+            <End Role="Reservation" EntitySet="Reservations" />
+            <End Role="Guest" EntitySet="Guests" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Hotel_ManagementModelStoreContainer" CdmEntityContainer="Hotel_ManagementEntities">
+          <EntitySetMapping Name="Guests">
+            <EntityTypeMapping TypeName="Hotel_ManagementModel.Guest">
+              <MappingFragment StoreEntitySet="Guest">
+                <ScalarProperty Name="GuestId" ColumnName="GuestId" />
+                <ScalarProperty Name="GuestName" ColumnName="GuestName" />
+                <ScalarProperty Name="NumberOfPeople" ColumnName="NumberOfPeople" />
+                <ScalarProperty Name="BillAmount" ColumnName="BillAmount" />
+                <ScalarProperty Name="Reservation_Id" ColumnName="Reservation_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reservations">
+            <EntityTypeMapping TypeName="Hotel_ManagementModel.Reservation">
+              <MappingFragment StoreEntitySet="Reservation">
+                <ScalarProperty Name="ReservationId" ColumnName="ReservationId" />
+                <ScalarProperty Name="TableStatus" ColumnName="TableStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

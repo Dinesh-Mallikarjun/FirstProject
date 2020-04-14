@@ -1,0 +1,93 @@
+﻿@using MedicalResearch_PresentationLayer.Models
+
+@model ViewModel
+@{
+    ViewBag.Title = "DisplayDiagnose";
+}
+
+<form action="ViewDiagnose"method="post">
+    <br />
+    <br />
+    <label for="name">Patient name:</label>
+    <input type="text" id="name" name="name" /><br /><br />
+    <label id="id1">Symptom1:</label>
+    <select name="Symptom_Id1">
+        <option value="0" selected>select</option>
+        @foreach (var symptom in Model.symptomModels)
+        {
+            <option value="@symptom.Symptom_Id">@symptom.Symptom_Name</option>
+        }
+    </select>
+    <br />
+    <br />
+    <label id="id2">Symptom2:</label>
+    <select name="Symptom_Id2">
+        <option value="0" selected>select</option>
+        @foreach (var symptom in Model.symptomModels)
+        {
+            <option value="@symptom.Symptom_Id">@symptom.Symptom_Name</option>
+        }
+    </select>
+    <br />
+    <br />
+    <input type="submit" value="Diagnose" submit="location.href='@Url.Action("ViewDiagnose","Diagnose")'">
+    <input type="button" value="Cancel" onclick="location.href='@Url.Action("Index","Home")'" />
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@model IEnumerable<DoctorProject.Models.DoctorModel>
+
+    @{
+        ViewBag.Title = "GetDoctorName";
+    }
+
+    <table class="table table-boadered table-striped">
+        <tr>
+            <th> Doctor Name</th>
+        </tr>
+
+        @foreach (var i in Model)
+        {
+            <tr>
+                <td>@i.DoctorName</td>
+            </tr>
+        }
+    </table>
+    <body style="background-color:aquamarine; font-family: Verdana, Arial;">
+        <form action="" method="post"></form>
+    </body>*@
+
+
+

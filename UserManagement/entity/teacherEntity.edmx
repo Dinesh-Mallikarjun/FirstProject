@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="schooldatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="subjects">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="subname" Type="varchar" MaxLength="20" />
+          <Property Name="modules" Type="int" />
+        </EntityType>
+        <EntityType Name="teachers">
+          <Key>
+            <PropertyRef Name="teachersid" />
+          </Key>
+          <Property Name="teachersid" Type="int" Nullable="false" />
+          <Property Name="tname" Type="varchar" MaxLength="20" />
+          <Property Name="salary" Type="int" />
+          <Property Name="subId" Type="int" />
+        </EntityType>
+        <Association Name="FK__teachers__subId__1273C1CD">
+          <End Role="subjects" Type="Self.subjects" Multiplicity="0..1" />
+          <End Role="teachers" Type="Self.teachers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subjects">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="teachers">
+              <PropertyRef Name="subId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="schooldatabaseModelStoreContainer">
+          <EntitySet Name="subjects" EntityType="Self.subjects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="teachers" EntityType="Self.teachers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__teachers__subId__1273C1CD" Association="Self.FK__teachers__subId__1273C1CD">
+            <End Role="subjects" EntitySet="subjects" />
+            <End Role="teachers" EntitySet="teachers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="schooldatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="subject">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="subname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="modules" Type="Int32" />
+          <NavigationProperty Name="teachers" Relationship="Self.FK__teachers__subId__1273C1CD" FromRole="subjects" ToRole="teachers" />
+        </EntityType>
+        <EntityType Name="teacher">
+          <Key>
+            <PropertyRef Name="teachersid" />
+          </Key>
+          <Property Name="teachersid" Type="Int32" Nullable="false" />
+          <Property Name="tname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="salary" Type="Int32" />
+          <Property Name="subId" Type="Int32" />
+          <NavigationProperty Name="subject" Relationship="Self.FK__teachers__subId__1273C1CD" FromRole="teachers" ToRole="subjects" />
+        </EntityType>
+        <Association Name="FK__teachers__subId__1273C1CD">
+          <End Role="subjects" Type="Self.subject" Multiplicity="0..1" />
+          <End Role="teachers" Type="Self.teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subjects">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="teachers">
+              <PropertyRef Name="subId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="schooldatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="subjects" EntityType="Self.subject" />
+          <EntitySet Name="teachers" EntityType="Self.teacher" />
+          <AssociationSet Name="FK__teachers__subId__1273C1CD" Association="Self.FK__teachers__subId__1273C1CD">
+            <End Role="subjects" EntitySet="subjects" />
+            <End Role="teachers" EntitySet="teachers" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="schooldatabaseModelStoreContainer" CdmEntityContainer="schooldatabaseEntities">
+          <EntitySetMapping Name="subjects">
+            <EntityTypeMapping TypeName="schooldatabaseModel.subject">
+              <MappingFragment StoreEntitySet="subjects">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="subname" ColumnName="subname" />
+                <ScalarProperty Name="modules" ColumnName="modules" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="teachers">
+            <EntityTypeMapping TypeName="schooldatabaseModel.teacher">
+              <MappingFragment StoreEntitySet="teachers">
+                <ScalarProperty Name="teachersid" ColumnName="teachersid" />
+                <ScalarProperty Name="tname" ColumnName="tname" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="subId" ColumnName="subId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
