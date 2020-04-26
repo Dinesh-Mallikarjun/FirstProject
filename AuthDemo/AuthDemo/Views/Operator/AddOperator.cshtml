@@ -1,0 +1,38 @@
+﻿@using PresentationLayer.Models
+@model ViewModel
+
+@{
+    ViewBag.Title = "AddOperator";
+}
+
+<h2>AddOperator</h2>
+<form name="myform" action="AddOperator" method="post" onsubmit="return validateform(this.form)">
+    <label for="name">Operator name</label>
+    <input type="text" id="name" name="OperatorName" />
+    <br />
+    @* <span id="1" style="color:red;font-weight:bold"></span>*@
+    <br />
+    <label for="rate">Rating</label><t /><t />
+    <input type="number" id="rate" name="OperatorRating" />
+    <br />
+    @*<span id="1" style="color:red;font-weight:bold"></span>*@
+    <br />
+    <input type="submit" value="Add Operator" class="btn btn-default" />
+</form>
+
+@if (TempData["status"] != null)
+{
+    <script type="text/javascript">
+            window.onload = function () {
+                alert("@TempData["status"]");
+            };
+    </script>
+}
+@if (TempData["status1"] != null)
+{
+    <script type="text/javascript">
+            window.onload = function () {
+                alert("@TempData["status1"]");
+            };
+    </script>
+}

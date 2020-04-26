@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CompanyModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ApplyForjob">
+          <Key>
+            <PropertyRef Name="Companyid" />
+          </Key>
+          <Property Name="Companyid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="CandidatName" Type="varchar" MaxLength="30" />
+          <Property Name="mobileNumber" Type="decimal" Precision="10" Scale="0" />
+          <Property Name="Email" Type="varchar" MaxLength="30" />
+          <Property Name="ContactId" Type="int" />
+          <Property Name="Genderid" Type="int" />
+          <Property Name="CurrentRole" Type="varchar" MaxLength="20" />
+          <Property Name="collegename" Type="varchar" MaxLength="30" />
+          <Property Name="PreOrgName" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactId" />
+          </Key>
+          <Property Name="ContactId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContactedBy" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="GenderId" />
+          </Key>
+          <Property Name="GenderId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GenderName" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK__ApplyForj__Conta__145C0A3F">
+          <End Role="Contact" Type="Self.Contact" Multiplicity="0..1" />
+          <End Role="ApplyForjob" Type="Self.ApplyForjob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="ContactId" />
+            </Principal>
+            <Dependent Role="ApplyForjob">
+              <PropertyRef Name="ContactId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ApplyForj__Gende__15502E78">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="ApplyForjob" Type="Self.ApplyForjob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="GenderId" />
+            </Principal>
+            <Dependent Role="ApplyForjob">
+              <PropertyRef Name="Genderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CompanyModelStoreContainer">
+          <EntitySet Name="ApplyForjob" EntityType="Self.ApplyForjob" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contact" EntityType="Self.Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gender" EntityType="Self.Gender" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ApplyForj__Conta__145C0A3F" Association="Self.FK__ApplyForj__Conta__145C0A3F">
+            <End Role="Contact" EntitySet="Contact" />
+            <End Role="ApplyForjob" EntitySet="ApplyForjob" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ApplyForj__Gende__15502E78" Association="Self.FK__ApplyForj__Gende__15502E78">
+            <End Role="Gender" EntitySet="Gender" />
+            <End Role="ApplyForjob" EntitySet="ApplyForjob" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CompanyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ApplyForjob">
+          <Key>
+            <PropertyRef Name="Companyid" />
+          </Key>
+          <Property Name="Companyid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CandidatName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="mobileNumber" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ContactId" Type="Int32" />
+          <Property Name="Genderid" Type="Int32" />
+          <Property Name="CurrentRole" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="collegename" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PreOrgName" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Contact" Relationship="Self.FK__ApplyForj__Conta__145C0A3F" FromRole="ApplyForjob" ToRole="Contact" />
+          <NavigationProperty Name="Gender" Relationship="Self.FK__ApplyForj__Gende__15502E78" FromRole="ApplyForjob" ToRole="Gender" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="ContactId" />
+          </Key>
+          <Property Name="ContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContactedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ApplyForjobs" Relationship="Self.FK__ApplyForj__Conta__145C0A3F" FromRole="Contact" ToRole="ApplyForjob" />
+        </EntityType>
+        <EntityType Name="Gender">
+          <Key>
+            <PropertyRef Name="GenderId" />
+          </Key>
+          <Property Name="GenderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GenderName" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ApplyForjobs" Relationship="Self.FK__ApplyForj__Gende__15502E78" FromRole="Gender" ToRole="ApplyForjob" />
+        </EntityType>
+        <Association Name="FK__ApplyForj__Conta__145C0A3F">
+          <End Role="Contact" Type="Self.Contact" Multiplicity="0..1" />
+          <End Role="ApplyForjob" Type="Self.ApplyForjob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contact">
+              <PropertyRef Name="ContactId" />
+            </Principal>
+            <Dependent Role="ApplyForjob">
+              <PropertyRef Name="ContactId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ApplyForj__Gende__15502E78">
+          <End Role="Gender" Type="Self.Gender" Multiplicity="0..1" />
+          <End Role="ApplyForjob" Type="Self.ApplyForjob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gender">
+              <PropertyRef Name="GenderId" />
+            </Principal>
+            <Dependent Role="ApplyForjob">
+              <PropertyRef Name="Genderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CompanyEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ApplyForjobs" EntityType="Self.ApplyForjob" />
+          <EntitySet Name="Contacts" EntityType="Self.Contact" />
+          <EntitySet Name="Genders" EntityType="Self.Gender" />
+          <AssociationSet Name="FK__ApplyForj__Conta__145C0A3F" Association="Self.FK__ApplyForj__Conta__145C0A3F">
+            <End Role="Contact" EntitySet="Contacts" />
+            <End Role="ApplyForjob" EntitySet="ApplyForjobs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ApplyForj__Gende__15502E78" Association="Self.FK__ApplyForj__Gende__15502E78">
+            <End Role="Gender" EntitySet="Genders" />
+            <End Role="ApplyForjob" EntitySet="ApplyForjobs" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CompanyModelStoreContainer" CdmEntityContainer="CompanyEntities">
+          <EntitySetMapping Name="ApplyForjobs">
+            <EntityTypeMapping TypeName="CompanyModel.ApplyForjob">
+              <MappingFragment StoreEntitySet="ApplyForjob">
+                <ScalarProperty Name="Companyid" ColumnName="Companyid" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="CandidatName" ColumnName="CandidatName" />
+                <ScalarProperty Name="mobileNumber" ColumnName="mobileNumber" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+                <ScalarProperty Name="Genderid" ColumnName="Genderid" />
+                <ScalarProperty Name="CurrentRole" ColumnName="CurrentRole" />
+                <ScalarProperty Name="collegename" ColumnName="collegename" />
+                <ScalarProperty Name="PreOrgName" ColumnName="PreOrgName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="CompanyModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+                <ScalarProperty Name="ContactedBy" ColumnName="ContactedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="CompanyModel.Gender">
+              <MappingFragment StoreEntitySet="Gender">
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="GenderName" ColumnName="GenderName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

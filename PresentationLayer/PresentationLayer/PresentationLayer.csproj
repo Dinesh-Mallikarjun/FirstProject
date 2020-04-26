@@ -8,7 +8,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{781BDCDA-A554-4632-8F46-1A4CF0C6324B}</ProjectGuid>
+    <ProjectGuid>{26FDB37B-3E4C-421A-8C07-9054485B2C58}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -120,14 +120,16 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\Doctor_PatientController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OperatorController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Doctor_Model.cs" />
-    <Compile Include="Models\Model_Manager.cs" />
-    <Compile Include="Models\Patient_Model.cs" />
+    <Compile Include="Models\CustomerModel.cs" />
+    <Compile Include="Models\MobileOperatorModel.cs" />
+    <Compile Include="Models\ModelManager.cs" />
+    <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +137,9 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\college.jpg" />
+    <Content Include="Content\library.jpg" />
+    <Content Include="Content\Mumbai-Taj-Hotel-Pictures-Wallpaper-1920x1080.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -166,10 +171,16 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Operator\AddOperator.cshtml" />
+    <Content Include="Views\Operator\mobileOperators.cshtml" />
+    <Content Include="Views\Customer\AddCustomer.cshtml" />
+    <Content Include="Views\Operator\Success.cshtml" />
+    <Content Include="Views\Customer\SuccessCustomer.cshtml" />
+    <Content Include="Views\Operator\displaymobileoperatorss.cshtml" />
+    <Content Include="Views\Customer\ExcelSuccess.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Doctor_Patient\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -185,21 +196,17 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Doctor_Entity\Doctor_Entity.csproj">
-      <Project>{13d1eab4-8e16-4c67-9259-6615dc9b2552}</Project>
-      <Name>Doctor_Entity</Name>
+    <ProjectReference Include="..\Business\Business.csproj">
+      <Project>{ec0f8590-fc32-4bac-ab3c-f12222058f2a}</Project>
+      <Name>Business</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DP_BusinessLayer\DP_BusinessLayer.csproj">
-      <Project>{2cfc9cc2-0383-4606-9fb3-30ba6ba8793d}</Project>
-      <Name>DP_BusinessLayer</Name>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Project>{adb7f207-ffab-4733-ba55-e85eb9ebe9de}</Project>
+      <Name>Entity</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DP_Exception\DP_Exception.csproj">
-      <Project>{be475aa9-8255-4329-ba1c-6d242d5b7e43}</Project>
-      <Name>DP_Exception</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EntityLayer\Patient_Entity.csproj">
-      <Project>{c8b5198f-c29c-41e4-800a-50fde8a32d3b}</Project>
-      <Name>Patient_Entity</Name>
+    <ProjectReference Include="..\Exception\ExceptionLayer.csproj">
+      <Project>{6e7be5e2-53bd-483e-b1f9-51d36e8c78ea}</Project>
+      <Name>ExceptionLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
@@ -218,9 +225,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>54473</DevelopmentServerPort>
+          <DevelopmentServerPort>54581</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:54473/</IISUrl>
+          <IISUrl>http://localhost:54581/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

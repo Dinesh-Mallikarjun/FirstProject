@@ -1,0 +1,35 @@
+﻿@model IEnumerable<PresentationLayer.Models.ApplyForJobModel>
+
+@{
+    ViewBag.Title = "DisplayApplications";
+}
+<h3>@Html.ActionLink("Back", "Applyjob", "JobApply")</h3>
+<table class="table">
+    <tr>
+        <th>Company Name</th>
+        <th>Candidate Name</th>
+        <th>Mobile</th>
+        <th>EmailId</th>
+        <th>Contacted Through</th>
+        <th>Gender</th>
+        <th>Current Role</th>
+        <th>College Name</th>
+        <th>Pre-Organisation Name</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CompanyName</td>
+            <td>@item.CandidatName</td>
+            <td>@item.mobileNumber</td>
+            <td>@item.Email</td>
+            <td>@item.Contact.ContactedBy</td>
+            <td>@item.Gender.GenderName</td>
+            <td>@item.CurrentRole</td>
+            <td>@item.collegename</td>
+            <td>@item.PreOrgName</td>
+        </tr>
+    }
+</table>
+

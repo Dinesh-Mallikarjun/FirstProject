@@ -1,0 +1,287 @@
+﻿@using PresentationLayer.Models
+@model ViewModel
+
+@{
+    ViewBag.Title = "Applyjob";
+}
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+            .navbar a {
+                float: left;
+                font-size: 16px;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }        
+            .navbar a:hover {
+                background-color: red;
+            }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+            .dropdown-content a {
+                float: none;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+            }             
+
+        
+        .centerheader {
+            text-align: center;
+            max-width: 1024px;
+            margin: 30px auto 20px;
+            color: purple;
+        }
+
+        .tinyheader {
+            margin-bottom: 20px;
+            font-family: "Aller-Light";
+            font-size: 30px;
+            font-weight: lighter;
+            color: #8A0051;
+            font-weight: 100;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        .applyjobheader {
+            text-align: center;
+            max-width: 1024px;
+            margin: 30px auto 20px;
+            color: purple;
+        }
+
+        .section {
+            display: block;
+            background-color: green;
+        }
+
+        .button {
+            background-color: white;
+            border-color: deepskyblue;
+            color: deepskyblue;
+            padding: 5px;
+            text-align: center;
+            text-decoration: solid;
+            font-size: 18px;
+            margin: 4px 2px;
+        }
+        .button1 {
+            border-radius: 20%;
+        }
+    </style>
+</head>
+<body>
+</body>
+</html>
+<script>
+    function ValidateForm(form) {       
+        var name2 = document.getElementById("cdname").value;
+        var pno = document.getElementById("phon").value;
+        var email = document.getElementById("mail").value;
+        var regex = /^[a-zA-Z\s]+$/;
+        var regexmail = /^\S+\S+\.\S+$/;
+        var regexphone = /^\d+$/;
+        
+        if (name2 == null || name2 == "") {
+            document.getElementById("b").innerHTML = "Please Enter candidate name ";
+            return false;
+        }
+        else if (regex.test(name2) === false) {
+            document.getElementById("b").innerHTML = "it is not valid! please enter valid name ";
+            return false;
+        }
+        else if (pno == null || pno == "") {
+            document.getElementById("c").innerHTML = "Please Enter phone number ";
+            return false;
+        }
+        else if (regexphone.test(pno) === false) {
+            document.getElementById("c").innerHTML = "Please Enter only numbers ";
+            return false;
+        }
+        else if (email == null || email == "") {
+            document.getElementById("d").innerHTML = "Please Enter email address ";
+            return false;
+        }
+        else if (regexmail.test(email) === false) {
+            document.getElementById("d").innerHTML = "Please Enter valid email address ";
+            return false;
+        }
+        return true;
+    }
+</script>
+<script>
+    function function1() {
+        document.getElementById("123").style.backgroundColor = "black";
+        document.getElementById("1").style.color = "white";
+        document.getElementById("2").style.color = "white";
+        document.getElementById("3").style.color = "white";
+        document.getElementById("4").style.color = "white";
+        document.getElementById("5").style.color = "white";
+        document.getElementById("6").style.color = "white";
+        document.getElementById("7").style.color = "white";
+        document.getElementById("8").style.color = "white";
+        document.getElementById("9").style.color = "white";
+        document.getElementById("10").style.color = "white";
+    }
+    function function2() {
+        document.getElementById("123").style.backgroundColor = "white";
+        document.getElementById("1").style.color = "black";
+        document.getElementById("2").style.color = "black";
+        document.getElementById("3").style.color = "black";
+        document.getElementById("4").style.color = "black";
+        document.getElementById("5").style.color = "black";
+        document.getElementById("6").style.color = "black";
+        document.getElementById("7").style.color = "black";
+        document.getElementById("8").style.color = "black";
+        document.getElementById("9").style.color = "black";
+        document.getElementById("10").style.color = "black";
+    }
+    function about() {
+        var a = document.getElementById("12345");
+        document.getElementById("12345").style.background = "Yellow";        
+    }
+    function career() {
+        var b = document.getElementById("45678");
+        document.getElementById("45678").style.background = "skyblue";
+    }
+    function Student() {
+        document.getElementById("RoleDetail").innerHTML = "<lable for ='CurrentRole'>Current Role:</lable><br/><input type='text' id='Currentrole' name='CurrentRole' value='Student' readonly/><br/><lable for='College Name'>College Name:</lable><br/><input type='text' id='CollegeName' name='collegename'/><br/>";
+    }
+    function Employed() {
+        document.getElementById("RoleDetail").innerHTML = "<lable for ='CurrentRole'>Current Role:</lable><br/><input type='text' id='Currentrole' name='CurrentRole' value='Employed' readonly/><br/><lable for='Previous Organization Name'>Previous Organization Name:</lable><br/><input type='text' id='PreOrgName' name='PreOrgName'/><br/>";
+    }
+    function Unemployed() {
+        document.getElementById("RoleDetail").innerHTML = "<lable for ='CurrentRole'>Current Role:</lable><br/><input type='text' id='Currentrole' name='CurrentRole' value='UnEmployed' readonly/><br/>";
+    }
+
+</script>
+<body>
+    <div class="navbar">      
+        <button class="button button1" background:black;color:white" onclick="function1()">Black Theme</button>
+        <button class="button button1" background:black;color:white" onclick="function2()">White Theme</button>
+        <button id ="mn"class="button button1" background:black;color:white" onclick="about()">About Us</button>
+        <button id="op"class="button button1" background:black;color:white" onclick="career()">career</button>
+        <button id="op"class="button button1" background:black;color:white" onclick="window.location.href = '../JobApply/ApplyJob';">Home</button>
+        
+        <a id="1" href="../JobApply/DisplayApplications">List of Applications</a>
+    </div>
+</body>
+<body id="123">  
+    <div class="container">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarouse1" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="~/Content/mindtree.jpg" style="width:100%;">
+                </div>
+                <div class="item">
+                    <img src="~/Content/mindtree2.jpg" style="width:100%;">
+                </div>
+                <div class="item">
+                    <img src="~/Content/mindtree3.jpg" style="width:100%;">
+                </div>
+                <div class="item">
+                    <img src="~/Content/mindtree4.jpg" style="width:100%;">
+                </div>
+            </div>
+
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <section id="12345">
+        <div class="centerheader">
+            <h1>Company Overview</h1>
+            <div class="tinyheader">Technology Solutions to help businesses and societies flourish</div>
+            <p1>Mindtree delivers digital transformation and technology services from ideation to execution, enabling Global 2000 clients to outperform the competition. “Born digital,” Mindtree takes an agile, collaborative approach to creating customized solutions across the digital value chain. Our deep expertise in infrastructure and applications management turns IT into a strategic asset. Whether you need to run your business more efficiently or accelerate revenue growth, Mindtree can get you there.</p1>
+        </div>
+    </section>
+    <section id="45678">
+        <div class="applyjobheader">
+            <h1 id="1" class="center-block">Apply For Job </h1>
+        </div>
+    </section>
+    
+</body>
+<form action="ApplyJob" method="post" onsubmit="return ValidateForm(this.form)">
+
+    <label id="2" for="cname">Company name</label>
+    <input type="text" id="cname" name="CompanyName" placeholder="Mindtree" readonly />
+    <span id="a" style="color:red;font-weight:normal"></span>
+    <br />
+    <br />
+    <label id="3" for="cdname">Candidate name</label>
+    <input type="text" id="cdname" name="CandidatName" min="3" />
+    <span id="b" style="color:red;font-weight:normal"></span>
+    <br />
+    <br />
+    <label id="4" for="phon">Mobile number</label>
+    <input type="tel" id="phon" name="mobileNumber" maxlength="10" />
+    <span id="c" style="color:red;font-weight:normal"></span>
+    <br />
+    <br />
+    <label id="5" for="mail">Email Id</label>
+    <input type="email" id="mail" name="Email" />
+    <span id="d" style="color:red;font-weight:normal"></span>
+    <br />
+    <br />
+    <label id="6">how did you hear about this :</label><br />
+    <select name="Contact.ContactId">
+        <option value="0" selected>select</option>
+        @foreach (var item in Model.contactModels)
+        {
+            <option value="@item.ContactId">@item.ContactedBy</option>
+        }
+    </select>
+    <br /><br />
+    <label id="7">Gender:</label><br />
+    @foreach (var item in Model.genderModels)
+    {
+        <input type="radio" name="Gender.Genderid" value="@item.GenderId">@item.GenderName
+        <br />
+    }
+    <br />
+    <br />
+    <section>
+        <input id="SButton" type="button" class="button button1" value="Student" onclick="Student()" />
+        <input id="EButton" type="button" class="button button1" value="Employed" onclick="Employed()" />
+        <input id="UButton" type="button" class="button button1" value="Unemployed" onclick="Unemployed()" />
+        <div id="RoleDetail"></div>
+    </section>
+    <br />
+    <input type="submit" value="Apply" class="btn btn-default" />
+    <input type="reset" value="reset" />
+</form>
+<body style="background-color:blanchedalmond">
+</body>
+

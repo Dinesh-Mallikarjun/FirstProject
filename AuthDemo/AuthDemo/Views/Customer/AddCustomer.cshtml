@@ -1,0 +1,42 @@
+﻿@using PresentationLayer.Models
+
+@model ViewModel
+@{
+    ViewBag.Title = "AddCustomer";
+}
+
+<h2>AddCustomer</h2>
+<form name="myform" action="AddCustomer" method="post" onsubmit="return validateform(this.form)">
+    <label for="name">Customer name</label>
+    <input type="text" id="name" name="CustomerName" />
+    <br />
+    <br />
+    @* <span id="1" style="color:red;font-weight:bold"></span>*@
+
+    <label>Operator Id:</label>
+    <select name="OperatorId.OperatorId">
+        <option value="0" selected>select</option>
+        @foreach (var item in Model.mobileOperatorModels)
+        {
+            <option value="@item.OperatorId">@item.OperatorName</option>
+        }
+    </select>
+    <br />
+    <br />
+    <input type="submit" value="Add customer" class="btn btn-default" />
+</form>
+@if (TempData["status"] != null)
+{
+    <script type="text/javascript">
+            window.onload = function () {
+                alert("@TempData["status"]");
+            };
+    </script>
+}
+
+@{
+    ViewBag.Title = "AddCustomer";
+}
+
+<h2>AddCustomer</h2>
+

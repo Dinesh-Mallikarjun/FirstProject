@@ -1,0 +1,25 @@
+﻿@model IEnumerable<PresentationLayer.Models.MobileOperatorModel>
+
+@{
+    ViewBag.Title = "mobileOperators";
+}
+
+<h2>mobileOperators</h2>
+<table class="table">
+    <tr>
+        <th>Oprator id</th>
+        <th>Oprator Name</th>
+        <th>Oprator Rating</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.OperatorId</td>
+            <td>@item.OperatorName</td>
+            <td>@item.OperatorRating</td>
+
+        </tr>
+    }
+</table>
+

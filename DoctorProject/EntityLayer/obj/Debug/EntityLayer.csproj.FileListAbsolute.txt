@@ -1,6 +1,0 @@
-C:\Users\M1057962\source\repos\DoctorProject\EntityLayer\bin\Debug\EntityLayer.dll
-C:\Users\M1057962\source\repos\DoctorProject\EntityLayer\bin\Debug\EntityLayer.pdb
-C:\Users\M1057962\source\repos\DoctorProject\EntityLayer\obj\Debug\EntityLayer.csprojAssemblyReference.cache
-C:\Users\M1057962\source\repos\DoctorProject\EntityLayer\obj\Debug\EntityLayer.csproj.CoreCompileInputs.cache
-C:\Users\M1057962\source\repos\DoctorProject\EntityLayer\obj\Debug\EntityLayer.dll
-C:\Users\M1057962\source\repos\DoctorProject\EntityLayer\obj\Debug\EntityLayer.pdb
